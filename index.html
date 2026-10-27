@@ -3,12 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Demo Page</title>
-</head>
-<body>
-  <h1>Demo Page</h1>
-  <p>This is a placeholder page.</p>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Extended Stay America | Messaging Demo</title>
+  <link rel="stylesheet" href="styles.css">
 
+  <!-- Genesys Cloud Web Messenger -->
   <script type="text/javascript" charset="utf-8">
     (function (g, e, n, es, ys) {
       g['_genesysJs'] = e;
@@ -21,6 +20,117 @@
     })(window, 'Genesys', 'https://apps.mypurecloud.com/genesys-bootstrap/genesys.min.js', {
       environment: 'prod',
       deploymentId: 'a3f4bf52-8888-481b-8a0b-28d962054df5'
+    });
+  </script>
+</head>
+<body>
+  <div class="demo-banner">Demo environment &mdash; for Genesys Cloud messaging testing only. Not a live booking site.</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">ESA</span>
+        <span class="brand-name">Extended Stay America</span>
+      </a>
+      <nav class="nav">
+        <a href="#stay">Your Stay</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#faq">FAQ</a>
+        <button type="button" class="btn btn-small" data-open-chat>Chat with us</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <h1>Stay a night, a week, or longer.</h1>
+        <p>Fully equipped kitchens, free Wi-Fi, and weekly rates designed for extended stays.</p>
+        <form class="search" onsubmit="return false;">
+          <label>
+            <span>Destination</span>
+            <input type="text" placeholder="City, address, or airport">
+          </label>
+          <label>
+            <span>Check in</span>
+            <input type="date">
+          </label>
+          <label>
+            <span>Check out</span>
+            <input type="date">
+          </label>
+          <button type="submit" class="btn btn-accent">Find Hotels</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="stay" class="section">
+      <div class="container">
+        <h2>Questions about your stay?</h2>
+        <p class="lead">Our team can help with reservations, billing, extending your stay, and property questions.</p>
+        <div class="cards">
+          <div class="card">
+            <h3>Reservations</h3>
+            <p>Book, change, or cancel a reservation, or ask about weekly and monthly rates.</p>
+          </div>
+          <div class="card">
+            <h3>Current Guests</h3>
+            <p>Housekeeping, maintenance requests, extending your stay, or folio questions.</p>
+          </div>
+          <div class="card">
+            <h3>Property Info</h3>
+            <p>Pet policy, parking, laundry, check-in times, and local details for any property.</p>
+          </div>
+        </div>
+        <button type="button" class="btn" data-open-chat>Start a conversation</button>
+      </div>
+    </section>
+
+    <section id="amenities" class="section section-alt">
+      <div class="container">
+        <h2>Everything you need for a longer stay</h2>
+        <ul class="amenities">
+          <li>Fully equipped kitchen</li>
+          <li>Free Wi-Fi</li>
+          <li>Free grab-and-go breakfast</li>
+          <li>On-site guest laundry</li>
+          <li>Pet-friendly rooms</li>
+          <li>Weekly discounted rates</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <h2>Frequently asked questions</h2>
+        <details>
+          <summary>What time is check-in and check-out?</summary>
+          <p>Check-in and check-out times vary by property. Message us and we can confirm for your hotel.</p>
+        </details>
+        <details>
+          <summary>Can I extend my stay?</summary>
+          <p>Yes &mdash; chat with us or visit the front desk to extend, subject to availability.</p>
+        </details>
+        <details>
+          <summary>Are pets allowed?</summary>
+          <p>Many properties are pet-friendly. Ask us about the policy and fees for your property.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span class="brand-mark brand-mark-small">ESA</span>
+      <p>Extended Stay America &middot; Genesys Cloud web messaging demo</p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-open-chat]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        Genesys('command', 'Messenger.open');
+      });
     });
   </script>
 </body>
