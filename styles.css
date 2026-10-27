@@ -1,19 +1,25 @@
+/* Palette taken from extendedstayamerica.com (home.bundle.css) */
 :root {
-  --esa-navy: #002855;
-  --esa-blue: #0057a8;
-  --esa-gold: #ffc72c;
-  --ink: #1f2933;
-  --muted: #5b6770;
+  --esa-green: #338802;       /* --primary, .btn-primary */
+  --esa-green-dark: #256201;  /* .btn-primary:hover */
+  --esa-green-deep: #145e00;  /* links */
+  --esa-green-tint: #f1f9ed;  /* modal header tint */
+  --esa-brown: #483729;       /* --secondary */
+  --esa-navy: #17355e;        /* header callouts / FAQ headers */
+  --esa-footer: #666666;      /* .esa-site-footer */
+  --ink: #212529;
+  --muted: #58595b;
+  --border: #dbdedb;
   --bg: #ffffff;
-  --bg-alt: #f2f5f9;
-  --radius: 8px;
+  --bg-alt: #f2f2f2;
+  --radius: 6px;
 }
 
 * { box-sizing: border-box; }
 
 body {
   margin: 0;
-  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   color: var(--ink);
   background: var(--bg);
   line-height: 1.5;
@@ -26,8 +32,8 @@ body {
 }
 
 .demo-banner {
-  background: var(--esa-gold);
-  color: var(--esa-navy);
+  background: var(--esa-navy);
+  color: #fff;
   text-align: center;
   font-size: 0.85rem;
   font-weight: 600;
@@ -36,8 +42,10 @@ body {
 
 /* Header */
 .site-header {
-  background: var(--esa-navy);
-  color: #fff;
+  background: var(--bg);
+  color: var(--esa-brown);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
 }
 
 .header-inner {
@@ -54,14 +62,14 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #fff;
+  color: var(--esa-brown);
   text-decoration: none;
 }
 
 .brand-mark {
   display: inline-block;
-  background: var(--esa-gold);
-  color: var(--esa-navy);
+  background: var(--esa-green);
+  color: #fff;
   font-weight: 800;
   letter-spacing: 1px;
   padding: 4px 10px;
@@ -69,6 +77,8 @@ body {
 }
 
 .brand-mark-small { font-size: 0.8rem; }
+
+.site-footer .brand-mark { background: #fff; color: var(--esa-green); }
 
 .brand-name {
   font-weight: 600;
@@ -83,47 +93,40 @@ body {
 }
 
 .nav a {
-  color: #fff;
+  color: var(--esa-brown);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.nav a:hover { color: var(--esa-gold); }
+.nav a:hover { color: var(--esa-green); }
 
 /* Buttons */
 .btn {
   display: inline-block;
-  background: var(--esa-blue);
+  background: var(--esa-green);
   color: #fff;
   border: 0;
   border-radius: var(--radius);
   padding: 12px 22px;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
 }
 
-.btn:hover { background: var(--esa-navy); }
+.btn:hover { background: var(--esa-green-dark); }
 
 .btn-small {
   padding: 8px 14px;
   font-size: 0.9rem;
-  background: var(--esa-gold);
-  color: var(--esa-navy);
 }
 
-.btn-small:hover { background: #fff; }
+.btn-accent { background: var(--esa-green); }
 
-.btn-accent {
-  background: var(--esa-gold);
-  color: var(--esa-navy);
-}
-
-.btn-accent:hover { background: #ffd65c; }
+.btn-accent:hover { background: var(--esa-green-dark); }
 
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, var(--esa-navy) 0%, var(--esa-blue) 100%);
+  background: linear-gradient(135deg, var(--esa-green-dark) 0%, var(--esa-green) 100%);
   color: #fff;
   padding: 64px 0;
 }
@@ -161,7 +164,7 @@ body {
 .search input {
   margin-top: 4px;
   padding: 10px;
-  border: 1px solid #c8d1db;
+  border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 1rem;
 }
@@ -172,7 +175,7 @@ body {
 .section-alt { background: var(--bg-alt); }
 
 .section h2 {
-  color: var(--esa-navy);
+  color: var(--esa-brown);
   margin-top: 0;
 }
 
@@ -189,15 +192,15 @@ body {
 }
 
 .card {
-  border: 1px solid #dde3ea;
-  border-top: 4px solid var(--esa-gold);
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--esa-green);
   border-radius: var(--radius);
   padding: 20px;
 }
 
 .card h3 {
   margin-top: 0;
-  color: var(--esa-navy);
+  color: var(--esa-green-deep);
 }
 
 .amenities {
@@ -210,27 +213,27 @@ body {
 
 .amenities li {
   background: #fff;
-  border-left: 4px solid var(--esa-blue);
+  border-left: 4px solid var(--esa-green);
   padding: 14px 16px;
   border-radius: 4px;
   font-weight: 500;
 }
 
 details {
-  border-bottom: 1px solid #dde3ea;
+  border-bottom: 1px solid var(--border);
   padding: 14px 0;
 }
 
 summary {
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--esa-navy);
 }
 
 /* Footer */
 .site-footer {
-  background: var(--esa-navy);
-  color: #c9d4e2;
+  background: var(--esa-footer);
+  color: #fff;
   padding: 24px 0;
   font-size: 0.9rem;
 }
